@@ -1,0 +1,629 @@
+.my-todo-lists {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(248, 247, 251, 1) 0%,
+    rgba(241, 241, 247, 1) 35%,
+    rgba(198, 215, 218, 1) 100%
+  );
+  color: black;
+  display: none;
+  flex-direction: column;
+  row-gap: 5px;
+  margin: 5px;
+}
+.my-todo-lists.showInputPannel {
+  display: flex;
+  animation: showPanel 1s forwards;
+}
+.item-head {
+  width: 100%;
+  height: auto;
+  color: black;
+  border-radius: 5px;
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.todo-menu {
+  position: absolute;
+  bottom: 2.5%;
+  left: 1.5%;
+  background-color: black;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  z-index: 99;
+}
+
+.todo-menu span {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 1px;
+  width: 90%;
+}
+.spanA {
+  transform: rotateZ(90deg);
+}
+.spanB {
+  transform: translateY(-1.5px);
+}
+.todo-menu.showMenu,
+.idea-btnx.showMenu {
+  transform: rotateZ(-75deg);
+}
+.Clear-diary button {
+  width: max-content;
+  height: auto;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  background: none;
+  color: tomato;
+}
+.todo-inputs-container {
+  position: absolute;
+  bottom: 5%;
+  left: 4.25%;
+  width: auto;
+  height: auto;
+  display: none;
+  flex-direction: column;
+  row-gap: 5px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.todo-inputs-container.showInputPannel {
+  z-index: 99;
+  display: flex;
+  animation: showPanel 1s forwards;
+}
+
+.sub-container {
+  height: auto;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  position: relative;
+}
+
+.inp-plane {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  background-color: #d3d3d3;
+}
+.target-panel {
+  display: none;
+}
+
+.todo-input.hideInputPannel {
+  display: none;
+  animation: showPanel 1s forwards;
+}
+.target-panel.showInputPannel {
+  display: flex;
+  animation: showPanel 1s forwards;
+}
+
+.inp-plane ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inp-plane ul li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  column-gap: 7.5px;
+  padding: 10px;
+}
+
+.inp-plane ul li button {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.inp-plane ul li input,
+.inp-plane ul li select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.inp-plane ul li input:focus,
+.inp-plane ul li select:focus {
+  outline: none;
+}
+.todo-input ul li h2,
+.target-panel ul li strong,
+.target-panel ul li h2 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  border-radius: 10px;
+}
+.todo-input ul li p {
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: -10px;
+  text-transform: capitalize;
+}
+
+#activity-input,
+#target-input {
+  height: 2.5rem;
+}
+
+#priority-chk,
+#target-priority {
+  flex: 0.1;
+  height: auto;
+}
+.todo-items {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  border-radius: 5px;
+  color: black;
+}
+
+.todo-items li {
+  width: calc(100% / 2);
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  background-color: darkblue;
+  color: white;
+}
+
+.todo-items li p {
+  height: auto;
+  border-left: 1px solid rgba(247, 243, 243, 0.85);
+  padding: 5px;
+  text-wrap: nowrap;
+}
+.todo-items li:hover {
+  background-color: aliceblue;
+  color: black;
+}
+.todo-items li:active {
+  transform: translateY(2px);
+}
+
+.item-containers {
+  width: 100%;
+  flex: auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  column-gap: 5px;
+}
+
+.t-d-c {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.To-Int-Header {
+  flex: 0.5;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 5px 5px 10px 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.To-Int-Header ol,
+.inp-plane ul li ol {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  column-gap: 5px;
+}
+
+.inp-plane ul li ol {
+  justify-content: center;
+}
+
+.To-Int-Header ol li,
+.inp-plane ul li ol li {
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  padding: 5px;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  letter-spacing: 2px;
+  font-size: 13px;
+  cursor: pointer;
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: -10px 0px 13px -7px #494848, 10px 0px 13px -7px #8f8c8c,
+    5px 5px 15px 5px rgba(145, 142, 142, 0);
+}
+
+.To-Int-Header ol li:active,
+.inp-plane ul li ol li:active {
+  transform: translateY(2px);
+}
+
+.To-Int-Header ol li:hover,
+.inp-plane ul li ol li:hover {
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #004e92,
+    #000428
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #004e92, #000428);
+  color: whitesmoke;
+}
+.To-Int-Header ol li:hover {
+  width: calc(100% / 7);
+  border-radius: 5px;
+  margin: 0;
+  border: none;
+  font-size: 13px;
+  text-align: center;
+  justify-content: center;
+}
+.To-Int-Header ol li.daysClass {
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #004e92,
+    #000428
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #004e92, #000428);
+  color: whitesmoke;
+}
+
+.todo-activity-container {
+  position: relative;
+  width: 100%;
+  flex: 10;
+  border-radius: 5px;
+}
+
+.todo-intake {
+  border-radius: 5px;
+  height: 85.2vh;
+  overflow-y: auto;
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+@keyframes animateThis {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.todo-intake.showdaysIntake {
+  display: block;
+  animation: animateThis 500ms forwards ease-in-out;
+}
+
+.todo-intake::-webkit-scrollbar,
+.target-intake::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes removeThis {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.todo-intake li {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  height: auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 5px 2px 1rem 2px;
+
+  color: black;
+  animation: removeThis 300ms forwards;
+  animation-play-state: paused;
+}
+
+.pin-priority {
+  position: sticky;
+  top: 0.5%;
+}
+.sectionA,
+.sectionB {
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 5px;
+}
+.sectionA {
+  flex: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  row-gap: 5px;
+}
+
+.sectionB {
+  border: none;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: tomato;
+}
+
+.sectionB div span {
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.sectionB div span:active {
+  transform: translateY(2px);
+}
+.sectionB div span:hover {
+  background-color: #004e92;
+}
+
+.todo-ticks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+.todo-ticks div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  border-left: 1px solid lightgray;
+  padding: 5px;
+}
+
+.sectionA h2 {
+  text-transform: capitalize;
+  color: gray;
+  font-size: 18px;
+}
+.sectionA h1 {
+  color: whitesmoke;
+  font-size: 20px;
+}
+.sectionA span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+.sectionA h2 label {
+  font-size: 12px;
+}
+.firstSub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 7px 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.firstSub span {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  column-gap: 3.5px;
+}
+
+.target-contain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  height: auto;
+}
+.target-contain-hd,
+.target-intake {
+  width: 100%;
+  padding: 5px;
+}
+
+.target-contain-hd {
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle,
+    rgba(248, 247, 251, 1) 0%,
+    rgba(241, 241, 247, 1) 35%,
+    rgba(198, 215, 218, 1) 100%
+  );
+  color: black;
+  color: gray;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.target-intake {
+  height: 85.2vh;
+  overflow-y: auto;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.target-intake li {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  font-size: 15px;
+
+  animation: removeThis 300ms forwards;
+  animation-play-state: paused;
+}
+
+@keyframes animateTargetBorder {
+  0% {
+    border: 1px solid red;
+  }
+  50% {
+    border: 5px solid red;
+    background-color: gray;
+  }
+  100% {
+    border: 1px solid rgba(150, 9, 9, 0.5);
+    background: inherit;
+  }
+}
+.target-intake li.animateborder {
+  animation: animateTargetBorder 1s ease-in-out forwards;
+}
+
+.typeandcat {
+  width: 100%;
+  height: 2.75rem;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  background-color: tomato;
+  color: white;
+}
+
+.targetTxt {
+  width: 100%;
+  flex-direction: column;
+}
+.targetTxt h4 {
+  width: 100%;
+  height: 2rem;
+  text-align: start;
+  color: #000428;
+}
+.targetTxt h3 {
+  width: 100%;
+  height: auto;
+  text-wrap: wrap;
+  padding: 5px 5px 5px 10%;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.timelinPeriods {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.timelinPeriods p,
+.timelinPeriods span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  border-radius: 5px;
+}
+.timelinPeriods span {
+  justify-content: start;
+  column-gap: 10px;
+  border: none;
+}
+.spec-date-div {
+  width: 100%;
+  display: none;
+}
+.spec-date-div.displaySpecific {
+  display: flex;
+  justify-content: space-evenly;
+}
+#clock {
+  font-size: 13px;
+}
+.clock-wrapper {
+  width: 100%;
+}
+.clock-wrapper :is(.cell, .hrminsec) {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+.clock-wrapper :is(.hrminsec) {
+  text-align: start;
+  margin-bottom: 3px;
+}
+
+#hours,
+#minutes,
+#seconds {
+  text-align: center;
+}

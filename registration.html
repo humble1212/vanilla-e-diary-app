@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="registrationstyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>dockris e-diary app login/register</title>
+  </head>
+  <body>
+    <header class="registration-header">
+      <ol class="log-reg" id="profile">
+        <li>
+          <a href="/index.html">
+            <span class="material-symbols-outlined"> home </span></a
+          >
+        </li>
+        <li id="account_circle">
+          <span class="material-symbols-outlined"> account_circle </span>
+        </li>
+        <li id="login">
+          <span class="material-symbols-outlined"> login </span>
+        </li>
+        <li id="logout">
+          <span class="material-symbols-outlined"> logout </span>
+        </li>
+      </ol>
+    </header>
+    <main>
+      <div class="registration-page">
+        <!-- login/registration buttons -->
+        <div class="log-buttons">
+          <button type="button" id="login-btn">Login</button>
+          <button type="button" id="Sign-Up-btn">Register</button>
+          <button type="button" id="del-acc" style="color: gray">
+            Delete Account
+          </button>
+        </div>
+        <div class="reg-log-container">
+          <!-- loging page -->
+          <form action="#" id="login-form" name="login-form" class="login-form">
+            <ul>
+              <li><h1>login</h1></li>
+              <li>
+                <label for="user-name">User Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter User Name"
+                  id="user-name" />
+              </li>
+              <li>
+                <label for="user-mail">Email</label>
+                <input
+                  type="email"
+                  placeholder="user@gmail.com"
+                  id="user-mail" />
+              </li>
+              <li>
+                <label for="user-password">Enter Password</label>
+                <input type="password" id="user-password" />
+              </li>
+              <li>
+                <label for="Confirm-password">Confirm Password</label>
+                <input type="password" id="Confirm-password" />
+              </li>
+              <li id="submit-button">
+                <button type="submit">submit</button>
+              </li>
+            </ul>
+          </form>
+
+          <form action="#" class="delete-account" method="post">
+            <ul>
+              <li>
+                <h2>Delete</h2>
+              </li>
+              <li>
+                <input
+                  type="email"
+                  placeholder="enter email address"
+                  name="del-mail"
+                  id="del-mail" />
+              </li>
+              <li>
+                <input
+                  type="password"
+                  placeholder="enter password"
+                  name="del-pass"
+                  id="del-pass" />
+              </li>
+              <li>
+                <button type="button" style="color: red" id="d-a-button">
+                  Delete Account
+                </button>
+              </li>
+            </ul>
+          </form>
+
+          <!-- registration page -->
+          <form
+            action="#"
+            id="registration-form"
+            name="registration-form"
+            class="registration-form">
+            <ul>
+              <li><h1>Sign Up</h1></li>
+              <li>
+                <label for="S-user-name">Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Hughton Bale"
+                  id="S-user-name" />
+              </li>
+              <li>
+                <div>
+                  <label for="gender">Male</label>
+                  <input type="radio" name="gender" id="male" checked />
+                  <label for="gender">Female</label>
+                  <input type="radio" name="gender" id="female" />
+                </div>
+              </li>
+              <li>
+                <label for="S-user-mail">Email</label>
+                <input
+                  type="email"
+                  placeholder="user@gmail.com"
+                  id="S-user-mail" />
+              </li>
+              <li>
+                <label for="r-user-password">Enter Password</label>
+                <input
+                  type="password"
+                  id="r-user-password"
+                  name="r-user-password" />
+              </li>
+              <li>
+                <label for="c-user-password">confirm Password</label>
+                <input
+                  type="password"
+                  id="c-user-password"
+                  name="c-user-password" />
+              </li>
+              <li id="nxt-but">
+                <div>
+                  <label for="remember">Remember me</label>
+                  <input type="checkbox" name="remember" id="remember" />
+                </div>
+              </li>
+              <li>
+                <div id="nxt-elements">
+                  <span></span>
+                  <span></span>
+                </div>
+              </li>
+            </ul>
+            <ul id="next-section">
+              <li id="submit-btn">
+                <button type="submit">submit</button>
+              </li>
+              <li><span>Register with Google account?</span></li>
+              <li id="google-btn">
+                <button type="button">
+                  <img src="images/Google-logo-2015-G-icon.png" alt="" />
+                  oogle
+                </button>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+      <div class="show-profile">
+        <div class="s-p-container">
+          <div class="emptySide"></div>
+          <ul class="user-info">
+            <li><h1>MY PROFILE</h1></li>
+            <li class="my-profile">
+              <div class="my-img">
+                <img src="images/person_white_24dp.svg" alt="" />
+              </div>
+              <div class="uploads-box">
+                <p>Upload User Image file</p>
+                <span id="up-span">
+                  <label for="upload-file">
+                    <span class="material-symbols-outlined"> upload_file </span>
+                    Upload image</label
+                  >
+                  <input type="file" name="upload-file" id="upload-file" />
+                </span>
+                <div class="contact-links">
+                  <ol>
+                    <li><img src="images/facebook.gif" alt="" /></li>
+                    <li><img src="images/download.jpg" alt="" /></li>
+                    <li><img src="images/tiktok.jpg" alt="" /></li>
+                  </ol>
+                </div>
+              </div>
+            </li>
+            <li class="pro-det-list" id="p-details">
+              <h2>
+                Personal Details
+                <span>▶</span>
+              </h2>
+              <p>please fill up your</p>
+            </li>
+            <li class="pro-det-list" id="change-pass">
+              <h2>
+                Change Password
+                <span>▶</span>
+              </h2>
+              <p>change user password</p>
+            </li>
+
+            <li class="pro-det-list">
+              <h2>
+                Go Premium
+                <span>▶</span>
+              </h2>
+              <p>Register premium ad free services</p>
+            </li>
+            <li class="pro-det-list">
+              <h2>
+                Payment method
+                <span>▶</span>
+              </h2>
+              <p>
+                choose payment option <br />
+                bank transfer mobile transfer others methods
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="user-profile">
+          <div class="change-paswrd">
+            <h1>Change Password</h1>
+            <form action="#">
+              <ul>
+                <li>
+                  <input
+                    type="password"
+                    placeholder="old Password"
+                    name="password-old"
+                    id="password-old"
+                    required
+                    maxlength="10"
+                    minlength="4" />
+                </li>
+                <li>
+                  <input
+                    type="password"
+                    placeholder="New Password"
+                    name="password-new"
+                    id="password-new"
+                    required
+                    maxlength="10"
+                    minlength="4" />
+                </li>
+                <li>
+                  <input
+                    type="password"
+                    placeholder="confirm password"
+                    name="password-confirm"
+                    id="password-confirm"
+                    required
+                    maxlength="10"
+                    minlength="4" />
+                </li>
+                <li>
+                  <button type="button" id="sub-det">Submit</button>
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="profile-out-side">
+            <span id="edit-pf">
+              <span class="material-symbols-outlined"> edit </span>
+            </span>
+            <h1 id="prof-picks">PERSONAL DETAILS</h1>
+            <form action="#" method="get">
+              <ul>
+                <li>
+                  <p>User First Name</p>
+                  <p>User Last Name</p>
+                </li>
+                <li>
+                  <p>Male</p>
+                  <p>Employed</p>
+                </li>
+                <li>
+                  <p>Usermail@gmail.com</p>
+                  <p>User Contact</p>
+                </li>
+                <li>
+                  <h4>brief description</h4>
+                </li>
+                <li>
+                  <p>description here</p>
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="profile-inp-side">
+            <h1>PROFILE DETAILS</h1>
+            <form action="#">
+              <ul>
+                <li>
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    name="first-name"
+                    id="first-name" />
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    name="last-name"
+                    id="last-name" />
+                </li>
+                <li>
+                  <label for="gender">Male</label>
+                  <input type="radio" name="gender" id="males" checked />
+                  <label for="gender">Female</label>
+                  <input type="radio" name="gender" id="females" />
+                  <label for="gender">Other</label>
+                  <input type="radio" name="gender" id="other" />
+                </li>
+                <li>
+                  <input
+                    type="email"
+                    placeholder="email@gmail.com"
+                    name="email-add"
+                    id="email-add" />
+                  <input
+                    type="tel"
+                    placeholder="telephone number"
+                    name="contact-no"
+                    id="contact-no" />
+                </li>
+                <li>
+                  <label for="employment">Employment</label>
+                  <select name="employed" id="employed">
+                    <option value="Self Employed">Self Employed</option>
+                    <option value="Employee">Employee</option>
+                    <option value="Student">Student</option>
+                  </select>
+                </li>
+                <li>
+                  <span>briefly describe your Nature of Income</span>
+                </li>
+                <li>
+                  <textarea
+                    name="nature-of-income"
+                    id="nature-of-income"
+                    cols="30"
+                    rows="10"></textarea>
+                </li>
+                <li>
+                  <button type="button" id="sv-det">Save Details →</button>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="close-profile">
+        <span class="material-symbols-outlined"> close </span>
+      </div>
+    </main>
+    <script src="variable.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

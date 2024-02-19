@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="To-Do-styles.css" />
+    <link rel="stylesheet" href="budgetstyles.css" />
+    <link rel="stylesheet" href="Note.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <title>dockris e-diary app</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main>
+      <!-- page header and nav links -->
+      <header>
+        <h3>e-diary</h3>
+        <div class="show-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <a href="tel:+277534309" id="phone_in_talk">
+            <span class="material-symbols-outlined"> phone_in_talk </span>
+          </a>
+          <a href="tel:+277534309" id="chat">
+            <span class="material-symbols-outlined"> chat </span>
+          </a>
+          <a href="mailto:christophereshun91@gmail.com" id="mail">
+            <span class="material-symbols-outlined"> mail </span>
+          </a>
+          <a href="https://maps.google.com/" id="local_library">
+            <span class="material-symbols-outlined"> local_library </span>
+          </a>
+          <a href="https://maps.google.com/" id="location_on">
+            <span class="material-symbols-outlined"> location_on </span>
+          </a>
+        </nav>
+      </header>
+
+      <section>
+        <!-- app menu tabs -->
+        <div class="nav-tabs">
+          <ul>
+            <li id="home">
+              <span class="material-symbols-outlined"> home </span>
+              <strong>Home</strong>
+            </li>
+            <li id="to-do-list">
+              <span class="material-symbols-outlined"> event </span>
+              <strong>To-do</strong>
+            </li>
+            <li id="edit_note">
+              <span class="material-symbols-outlined"> note_alt </span>
+              <strong>Notes</strong>
+            </li>
+            <li id="account_balance">
+              <span class="material-symbols-outlined">
+                account_balance_wallet
+              </span>
+              <strong>Budget</strong>
+            </li>
+          </ul>
+          <ol>
+            <li id="settings">
+              <span class="material-symbols-outlined"> sync </span>
+              <strong>Sync</strong>
+            </li>
+            <li class="Clear-diary">
+              <span class="material-symbols-outlined"> delete </span>
+              <strong>Reset</strong>
+            </li>
+            <li class="clear_grapgh">
+              <span class="material-symbols-outlined"> monitoring </span>
+              <strong>Clear Graph</strong>
+            </li>
+            <li>
+              <a href="registration.html">
+                <span class="material-symbols-outlined"> person </span>
+                <strong>User</strong>
+              </a>
+            </li>
+          </ol>
+        </div>
+
+        <section class="content-page">
+          <!-- todo menu -->
+          <section class="my-todo-lists">
+            <div class="todo-menu">
+              <span class="spanA"></span>
+              <span class="spanB"></span>
+            </div>
+
+            <div class="todo-inputs-container">
+              <div class="sub-container">
+                <!-- entering todo -->
+                <div class="todo-input inp-plane">
+                  <ul>
+                    <li>
+                      <h2>To-Do Activity Input</h2>
+                    </li>
+                    <li>
+                      <select name="category" id="category">
+                        <option value="Not Selected" selected>
+                          To-do Type
+                        </option>
+                        <option value="Academic">Academic</option>
+                        <option value="Meeting">Meeting</option>
+                        <option value="Travels">Travelling</option>
+                        <option value="Driving">Driving</option>
+                        <option value="Religious Activity">Religion</option>
+                        <option value="Health & Wellness">Health</option>
+                        <option value="Career Profession">
+                          Career Profession
+                        </option>
+                        <option value="Other">Other</option>
+                      </select>
+
+                      <select name="T-Type" id="T-Type">
+                        <option value="Not Selected" selected>
+                          Add category
+                        </option>
+                        <option value="Personal">Personal</option>
+                        <option value="Family">Family</option>
+                        <option value="Organization">Organization</option>
+                        <option value="Social Group">Social Groups</option>
+                        <option value="Other">Other</option>
+                      </select>
+
+                      <select
+                        name="due-dat"
+                        id="due-dat"
+                        onchange="specdatefnc()">
+                        <option value="Not Selected" selected>
+                          Select Due Date
+                        </option>
+                        <option value="Today">Today</option>
+                        <option value="Tomorrow">Tomorrow</option>
+                        <option value="">Specific Date</option>
+                      </select>
+                    </li>
+                    <li>
+                      <div class="spec-date-div">
+                        <div>
+                          <label for="due">Set Date:</label>
+                          <input type="date" name="due" id="due" />
+                        </div>
+                        <div>
+                          <label for="due-date">Set Date:</label>
+                          <input type="date" name="due-date" id="due-date" />
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="table clock-wrapper">
+                        <div class="hrminsec">
+                          <p>Hours</p>
+                          <p>Mins</p>
+                          <p>Sec</p>
+                          <p>AM/PM</p>
+                        </div>
+                        <div class="cell">
+                          <select id="hours"></select>
+                          <select id="minutes"></select>
+                          <select id="seconds"></select>
+                          <select id="ampm">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                          </select>
+                        </div>
+                      </div>
+                      <button id="startstop">Add Reminder</button>
+                    </li>
+                    <li>
+                      <input
+                        type="text"
+                        placeholder="type activity"
+                        id="activity-input" />
+                    </li>
+                    <li>
+                      <p>select day to add ⇓</p>
+                    </li>
+                    <li>
+                      <ol id="add-td-btn">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Frid</li>
+                        <li>Sat.</li>
+                      </ol>
+                    </li>
+                  </ul>
+                </div>
+                <div class="target-panel inp-plane">
+                  <ul>
+                    <li><h2>Set Your Target</h2></li>
+                    <li>
+                      <label for="Tag-Type">Add Category</label>
+                      <select name="Tag-Type" id="Tag-Type">
+                        <option value="Personal" selected>Personal</option>
+                        <option value="Family">Family</option>
+                        <option value="Organization">Organization</option>
+                        <option value="Social Group">Social Groups</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <label for="T-category">Target Type</label>
+                      <input list="target" name="T-category" id="T-category" />
+                      <datalist id="target">
+                        <option value="Academic"></option>
+                        <option value="Career Profession"></option>
+                        <option value="Meeting"></option>
+                        <option value="Religious Activity"></option>
+                        <option value="Health & Wellness"></option>
+                        <option value="Other"></option>
+                      </datalist>
+                    </li>
+
+                    <li>
+                      <label for="timeline">To be Completed On: </label>
+                      <input type="date" name="timeline" id="timeline" />
+                    </li>
+                    <li>
+                      <label for="period">Or Set Period; </label>
+                      <label for="from">From: </label>
+                      <input type="date" name="from" id="from" />
+                      <label for="To">To: </label>
+                      <input type="date" name="To" id="To" />
+                    </li>
+                    <li>
+                      <input
+                        type="text"
+                        placeholder="What do you intent to achieve?"
+                        id="target-input" />
+                      <button type="button" id="add-target">Add</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- todo menu items -->
+              <ul class="todo-items">
+                <li id="calendar_today">
+                  <span class="material-symbols-outlined">
+                    calendar_today
+                  </span>
+                  <p>Add To-Do</p>
+                </li>
+                <li id="flag">
+                  <span class="material-symbols-outlined"> flag </span>
+                  <p>Set Goals</p>
+                </li>
+              </ul>
+            </div>
+            <div class="item-containers">
+              <div class="t-d-c">
+                <div class="To-Int-Header">
+                  <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ol>
+                </div>
+                <div class="todo-activity-container">
+                  <ul class="todo-intake"></ul>
+                  <ul class="todo-intake"></ul>
+                  <ul class="todo-intake"></ul>
+                  <ul class="todo-intake"></ul>
+                  <ul class="todo-intake"></ul>
+                  <ul class="todo-intake"></ul>
+                  <ul class="todo-intake"></ul>
+                </div>
+              </div>
+              <div class="target-contain">
+                <div class="target-contain-hd">
+                  <h2>my goals</h2>
+                </div>
+                <ul class="target-intake"></ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- budget page -->
+          <div class="mybudgets">
+            <div class="Budget-nav">
+              <div class="budget-nav-tabs">
+                <button type="button" class="trk-btn">
+                  <span class="material-symbols-outlined"> monitoring </span>
+                  Income
+                </button>
+                <button type="button" class="crt-btn">
+                  <span class="material-symbols-outlined"> add </span>
+                  Budgets
+                </button>
+              </div>
+              <div class="budget-nav-items">
+                <ul class="budget-items-list"></ul>
+                <ul class="income-items-list"></ul>
+              </div>
+            </div>
+            <div class="budget-content">
+              <div class="budget-cont-header">
+                <ul>
+                  <li id="today">
+                    <span class="material-symbols-outlined"> today </span>
+                  </li>
+                  <li id="view_week">
+                    <span class="material-symbols-outlined"> view_week </span>
+                  </li>
+                  <li id="calendar_month">
+                    <span class="material-symbols-outlined">
+                      calendar_month
+                    </span>
+                  </li>
+                  <li id="hourglass_top">
+                    <span class="material-symbols-outlined">
+                      hourglass_top
+                    </span>
+                  </li>
+                  <li id="shopping_cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="budget-cont-body">
+                <div class="budget-input-area">
+                  <ul>
+                    <li class="day-periods-css" id="day-periods">
+                      <form action="#">
+                        <div><h2>Daily Budget</h2></div>
+                        <div>
+                          <label for="add_Cat">Add Category:</label>
+                          <input
+                            list="bud_Cat"
+                            placeholder="Add Category ▽"
+                            name="add_Cat"
+                            id="add_Cat" />
+                          <datalist id="bud_Cat">
+                            <option value="Personal"></option>
+                            <option value="Family"></option>
+                            <option value="Corporate"></option>
+                            <option value="Others"></option>
+                          </datalist>
+                        </div>
+                        <div>
+                          <label for="add-date">Add Date: </label>
+                          <input type="date" name="add-date" id="add-date" />
+                        </div>
+                        <div>
+                          <h3>or Pick a Day</h3>
+                        </div>
+                        <div>
+                          <span class="daySelection" id="desk-size">
+                            <p>Today</p>
+                            <p>Mon</p>
+                            <p>Tue</p>
+                            <p>Wed</p>
+                            <p>Thu</p>
+                            <p>Fri</p>
+                            <p>Sat</p>
+                            <p>Sun</p>
+                          </span>
+                          <span class="daySelection" id="mobile-screenA">
+                            <p>Today</p>
+                            <p>Mon</p>
+                            <p>Tue</p>
+                            <p>Wed</p>
+                          </span>
+                          <span class="daySelection" id="mobile-screenB">
+                            <p>Thu</p>
+                            <p>Fri</p>
+                            <p>Sat</p>
+                            <p>Sun</p>
+                          </span>
+                        </div>
+                        <div>
+                          <input
+                            type="number"
+                            placeholder="enter available fund for budget"
+                            name="av-fund"
+                            id="av-fund"
+                            required />
+                        </div>
+                        <div>
+                          <span>
+                            <input
+                              type="text"
+                              placeholder="Enter Budget Item"
+                              name="bud-items"
+                              id="bud-items"
+                              required />
+                            <input
+                              type="text"
+                              placeholder="Designated Amount"
+                              name="bud-amnt"
+                              id="bud-amnt"
+                              required />
+                            <button type="button" id="add_daily">Add</button>
+                          </span>
+                        </div>
+                        <div>
+                          <span>
+                            <button
+                              type="button"
+                              id="crt-bgt"
+                              class="bud-crt-butts">
+                              Click to Create
+                            </button>
+                            <button
+                              type="reset"
+                              id="clr-bgt"
+                              class="bud-clr-butts">
+                              Clear All
+                            </button>
+                            <button type="button" id="save-day-btn">
+                              view List
+                            </button>
+                          </span>
+                        </div>
+                      </form>
+                    </li>
+                    <li id="week-periods">
+                      <form action="#" method="post">
+                        <div>
+                          <h2>Weekly Budget</h2>
+                        </div>
+                        <div>
+                          <input
+                            list="wks_Cat"
+                            placeholder="Add Category ▽"
+                            name="wk_Cat"
+                            id="wk_Cat" />
+                          <datalist id="wks_Cat">
+                            <option value="Personal"></option>
+                            <option value="Family"></option>
+                            <option value="Corporate"></option>
+                            <option value="Others"></option>
+                          </datalist>
+                        </div>
+                        <div>
+                          <h3>Pick Weekly Quarter</h3>
+                        </div>
+                        <div>
+                          <span id="week-selection">
+                            <p>1st quarter</p>
+                            <p>2nd quarter</p>
+                            <p>3rd quarter</p>
+                            <p>last quarter</p>
+                          </span>
+                        </div>
+                        <div>
+                          <h3>Bi-Weekly</h3>
+                          <span>
+                            <input type="week" name="from-wk" id="from-wk" />
+                            <input type="week" name="To-wk" id="To-wk" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3>or Pick a Specific Period</h3>
+                        </div>
+                        <div>
+                          <span>
+                            <input type="date" name="Frm-date" id="Frm-date" />
+                            <input type="date" name="To-date" id="To-date" />
+                          </span>
+                        </div>
+                        <div>
+                          <input
+                            type="number"
+                            placeholder="Enter Available fund for budget"
+                            name="all-fund"
+                            id="all-fund"
+                            required />
+                        </div>
+                        <div>
+                          <span>
+                            <input
+                              type="text"
+                              placeholder="Enter Budget Item"
+                              name="wk-bud-items"
+                              id="wk-bud-items"
+                              required />
+                            <input
+                              type="text"
+                              placeholder="Designated Amount"
+                              name="wk-bud-amnt"
+                              id="wk_bud_amnt"
+                              required />
+                            <button type="button" id="addWeeklybutt">
+                              Add
+                            </button>
+                          </span>
+                        </div>
+                        <div>
+                          <span>
+                            <button
+                              type="button"
+                              id="crt-wk-bgt"
+                              class="bud-crt-butts">
+                              Click to Create
+                            </button>
+                            <button
+                              type="reset"
+                              id="clr-wk-bgt"
+                              class="bud-clr-butts">
+                              Clear All
+                            </button>
+                            <button type="button" id="save-wk-btn">Save</button>
+                          </span>
+                        </div>
+                      </form>
+                    </li>
+                    <li id="month-periods">
+                      <form action="#" method="post">
+                        <div>
+                          <h2>Monthly Budget</h2>
+                        </div>
+                        <div>
+                          <input
+                            list="mts_Cat"
+                            placeholder="Add Category ▽"
+                            name="mt_Cat"
+                            id="mt_Cat" />
+                          <datalist id="mts_Cat">
+                            <option value="Personal"></option>
+                            <option value="Family"></option>
+                            <option value="Corporate"></option>
+                            <option value="Others"></option>
+                          </datalist>
+                        </div>
+                        <div>
+                          <h3>Pick Month ⇓</h3>
+                        </div>
+                        <div>
+                          <span class="monSpan">
+                            <input
+                              type="month"
+                              name="selected-month"
+                              id="selected-month" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3>or Pick a Specific Period</h3>
+                        </div>
+                        <div>
+                          <span>
+                            <input type="date" name="Frm-mt" id="Frm-mt" />
+                            <input type="date" name="To-mt" id="To-mt" />
+                          </span>
+                        </div>
+                        <div>
+                          <input
+                            type="number"
+                            placeholder="Enter Available fund for budget"
+                            name="all-mt-fund"
+                            id="all-mt-fund"
+                            required />
+                        </div>
+                        <div>
+                          <span>
+                            <input
+                              type="text"
+                              placeholder="Enter Budget Item"
+                              name="mt-bud-items"
+                              id="mt-bud-items"
+                              required />
+                            <input
+                              type="text"
+                              placeholder="Designated Amount"
+                              name="mt-bud-amnt"
+                              id="mt-bud-amnt"
+                              required />
+                            <button type="button" id="addMonthlyButt">
+                              Add
+                            </button>
+                          </span>
+                        </div>
+                        <div>
+                          <span>
+                            <button
+                              type="button"
+                              id="crt-mt-bgt"
+                              class="bud-crt-butts">
+                              Click to Create
+                            </button>
+                            <button
+                              type="reset"
+                              id="clr-mt-bgt"
+                              class="bud-clr-butts">
+                              Clear All
+                            </button>
+                            <button type="button" id="save-mt-btn">Save</button>
+                          </span>
+                        </div>
+                      </form>
+                    </li>
+                    <li id="yr-periods">
+                      <form action="#" method="post">
+                        <div>
+                          <h2>Annual Budget</h2>
+                        </div>
+                        <div>
+                          <span>
+                            <input
+                              list="yrs_Cat"
+                              placeholder="Add Category ▽"
+                              name="yr_Cat"
+                              id="yr_Cat" />
+                            <datalist id="yrs_Cat">
+                              <option value="Personal"></option>
+                              <option value="Family"></option>
+                              <option value="Corporate"></option>
+                              <option value="Others"></option>
+                            </datalist>
+
+                            <input
+                              list="yrs_list"
+                              placeholder="Select full Year ▽"
+                              name="slct-yr"
+                              id="slct-yr" />
+                            <datalist id="yrs_list">
+                              <option value="2024"></option>
+                              <option value="2025"></option>
+                              <option value="2026"></option>
+                              <option value="2027"></option>
+                              <option value="2028"></option>
+                              <option value="2029"></option>
+                              <option value="2030"></option>
+                            </datalist>
+                          </span>
+                        </div>
+                        <div>
+                          <h3>Or Pick Annual Quarter</h3>
+                        </div>
+                        <div>
+                          <span id="annualQuarterPicker">
+                            <p>1st quarter</p>
+                            <p>2nd quarter</p>
+                            <p>3rd quarter</p>
+                            <p>last quarter</p>
+                          </span>
+                        </div>
+                        <div>
+                          <h3>Annual Quarter Period</h3>
+                          <span>
+                            <input
+                              type="month"
+                              name="from-qtr-yr"
+                              id="from-qtr-yr" />
+                            <input
+                              type="month"
+                              name="To-qtr-yr"
+                              id="To-qtr-yr" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3>Or Annual Half</h3>
+                        </div>
+                        <div>
+                          <span id="halfAnnualPicks">
+                            <p>1st half of the yaer</p>
+                            <p>2nd half of the yaer</p>
+                          </span>
+                        </div>
+                        <div>
+                          <h3>Annual Half Period</h3>
+                          <span>
+                            <input
+                              type="month"
+                              name="from-half-yr"
+                              id="from-half-yr" />
+                            <input
+                              type="month"
+                              name="To-half-yr"
+                              id="To-half-yr" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3>or Pick a Specific Period</h3>
+                        </div>
+                        <div>
+                          <span>
+                            <input type="date" name="Frm-A-pd" id="Frm-A-pd" />
+                            <input type="date" name="To-A-pd" id="To-A-pd" />
+                          </span>
+                        </div>
+                        <div>
+                          <input
+                            type="number"
+                            placeholder="Enter Available fund for budget"
+                            name="all-yr-fund"
+                            id="all-yr-fund"
+                            required />
+                        </div>
+                        <div>
+                          <span>
+                            <input
+                              type="text"
+                              placeholder="Enter Budget Item"
+                              name="yr-bud-items"
+                              id="yr-bud-items"
+                              required />
+                            <input
+                              type="text"
+                              placeholder="Designated Amount"
+                              name="yr-bud-amnt"
+                              id="yr-bud-amnt"
+                              required />
+                            <button type="button" id="addAnnualButt">
+                              Add
+                            </button>
+                          </span>
+                        </div>
+                        <div>
+                          <span>
+                            <button
+                              type="button"
+                              id="crt-yr-bgt"
+                              class="bud-crt-butts">
+                              Click to Create
+                            </button>
+                            <button
+                              type="reset"
+                              id="clr-yr-bgt"
+                              class="bud-clr-butts">
+                              Clear All
+                            </button>
+                            <button type="button" id="save-yr-btn">Save</button>
+                          </span>
+                        </div>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+                <!-- shopping mode -->
+                <div class="shopping-container">
+                  <div class="shop-input">
+                    <form action="#">
+                      <ul>
+                        <li>
+                          <h3>Let Go Shopping</h3>
+                        </li>
+                        <li>
+                          <input
+                            type="number"
+                            placeholder="Allocate fund for shopping e.g(1000 USD)"
+                            name="shop-fund"
+                            id="shop-fund"
+                            required />
+                        </li>
+                        <li>
+                          <input
+                            type="text"
+                            placeholder="Type Items to buy"
+                            name="items-to-buy"
+                            id="items-to-buy" />
+                          <input
+                            type="number"
+                            placeholder="Enter Est. Price of item"
+                            name="amt-per-item"
+                            id="amt-per-item"
+                            required />
+
+                          <button type="button" id="Add-to-do">
+                            Itenary →
+                          </button>
+                        </li>
+                        <li>
+                          <div class="shopping-todo">
+                            <span>
+                              <h2>Shopping Itenary</h2>
+                            </span>
+                            <div class="shp-td-inp">
+                              <input
+                                type="text"
+                                placeholder="Enter Shopping Venue"
+                                name="todo-venue"
+                                id="todo-venue" />
+                              <label for="due-shop-date" class="shopDate"
+                                >Due date
+                              </label>
+                              <input
+                                type="date"
+                                name="due-shop-date"
+                                id="due-shop-date" />
+                              <label for="due-shop-time" class="shopTime"
+                                >Reminder
+                              </label>
+                              <input
+                                type="time"
+                                name="due-shop-time"
+                                id="due-shop-time" />
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <button type="button" id="appendShopList">
+                            Add to List
+                          </button>
+                          <button type="button" id="crt-shop-list">
+                            Create Shop List
+                          </button>
+                          <button type="button" id="clrListButt">
+                            Clear List
+                          </button>
+                        </li>
+                      </ul>
+                    </form>
+                  </div>
+                  <div class="shop-output">
+                    <div class="output-header">
+                      <h2 style="color: white">List of Items To Buy</h2>
+                    </div>
+                    <div class="output-list">
+                      <div class="cal-tot">
+                        <span>
+                          Total:
+                          <h1>$0.00 USD</h1>
+                        </span>
+                      </div>
+                      <ul class="output-list-items"></ul>
+                    </div>
+                    <footer class="output-footer">
+                      <ul>
+                        <li>
+                          <p>
+                            Allocated Fund:
+                            <strong id="alt-funt">$0.00 USD</strong>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Total Expenditure:
+                            <strong id="tot-exp"> $ 0.00 USD</strong>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Balance: <strong id="shop-diff">$ 0.00 USD</strong>
+                          </p>
+                        </li>
+                      </ul>
+                    </footer>
+                  </div>
+                </div>
+
+                <!-- budget output -->
+                <div class="budget-output">
+                  <div class="bud-out-head">
+                    <button type="button">
+                      <span class="material-symbols-outlined"> view_day </span>
+                      Daily
+                    </button>
+                    <button type="button">
+                      <span class="material-symbols-outlined">
+                        calendar_view_week
+                      </span>
+                      Weekly
+                    </button>
+                    <button type="button">
+                      <span class="material-symbols-outlined">
+                        calendar_view_month
+                      </span>
+                      Monthly
+                    </button>
+                    <button type="button">
+                      <span class="material-symbols-outlined">
+                        hourglass_bottom
+                      </span>
+                      Annual
+                    </button>
+                  </div>
+                  <div class="bud-out-div">
+                    <ul class="bud-out-div-ul">
+                      <li class="bud-out-div-li">
+                        <aside class="bud-out-ass">
+                          <p class="totalText" style="margin-left: 5px"></p>
+                          <div id="dailyMinutes"></div>
+                        </aside>
+                        <aside class="bud-out-li-container">
+                          <ul class="bud-out-li" id="dayListUl"></ul>
+                          <div class="bud-out-li-div">
+                            <div>
+                              <span class="spanA"></span>
+                              <p>Available Fund</p>
+                              <div class="totinc">$ 0.00 USD</div>
+                            </div>
+                            <div>
+                              <span class="spanB"></span>
+                              <p>Total Expenses</p>
+                              <div class="totexpinc">$ 0.00 USD</div>
+                            </div>
+                            <div>
+                              <span class="spanC"></span>
+                              <p>Amount Saved</p>
+                              <div class="totsaveinc">$ 0.00 USD</div>
+                            </div>
+                            <div>
+                              <span class="spanD"></span>
+                              <p>Percentage Savings</p>
+                              <div class="percentageSaveinc">$ 0.00 USD</div>
+                            </div>
+                          </div>
+                          <div class="bud-out-foot">
+                            <div class="bud-info">
+                              <h2>
+                                Remarks
+                                <span class="return-back">Back ↩</span>
+                              </h2>
+                              <h3 class="remarksText"></h3>
+                            </div>
+                          </div>
+                        </aside>
+                      </li>
+                      <li class="bud-out-div-li">
+                        <aside class="bud-out-ass">
+                          <p id="totAllWeekly"></p>
+                          <div id="totAllWeeklySummary"></div>
+                        </aside>
+                        <aside class="bud-out-li-container">
+                          <ul class="bud-out-li" id="weekList"></ul>
+                          <div class="bud-out-li-div">
+                            <div>
+                              <span class="spanA"></span>
+                              <p>Available Fund</p>
+                              <div class="totinc totwkAvInc">$ 0.00 USD</div>
+                            </div>
+                            <div>
+                              <span class="spanB"></span>
+                              <p>Total Expenses</p>
+                              <div class="totexpinc totExpwkInc">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanC"></span>
+                              <p>Amount Saved</p>
+                              <div class="totsaveinc totweekSaved">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanD"></span>
+                              <p>Percentage Savings</p>
+                              <div class="%saveinc weeklypercentage">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bud-out-foot">
+                            <div class="bud-info">
+                              <h2>
+                                Remarks
+                                <span class="return-back">Back ↩</span>
+                              </h2>
+                              <h3 class="remarksTextA"></h3>
+                            </div>
+                          </div>
+                        </aside>
+                      </li>
+                      <li class="bud-out-div-li">
+                        <aside class="bud-out-ass">
+                          <p id="totAlMonthly"></p>
+                          <div id="totAllMonthlySummary"></div>
+                        </aside>
+                        <aside class="bud-out-li-container">
+                          <ul class="bud-out-li" id="monthList"></ul>
+                          <div class="bud-out-li-div">
+                            <div>
+                              <span class="spanA"></span>
+                              <p>Available Fund</p>
+                              <div class="totinc" id="totalMonthlyBudget">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanB"></span>
+                              <p>Total Expenses</p>
+                              <div class="totexpinc" id="monthlybudgettotal">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanC"></span>
+                              <p>Amount Saved</p>
+                              <div class="totsaveinc" id="monthlySavings">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanD"></span>
+                              <p>Percentage Savings</p>
+                              <div class="%saveinc" id="monthlyPerc">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bud-out-foot">
+                            <div class="bud-info">
+                              <h2>
+                                Remarks
+                                <span class="return-back">Back ↩</span>
+                              </h2>
+                              <h3 class="remarksTextB"></h3>
+                            </div>
+                          </div>
+                        </aside>
+                      </li>
+                      <li class="bud-out-div-li">
+                        <aside class="bud-out-ass">
+                          <p id="totAlAnnual"></p>
+                          <div id="totAlAnnualSummary"></div>
+                        </aside>
+                        <aside class="bud-out-li-container">
+                          <ul class="bud-out-li" id="annualList"></ul>
+                          <div class="bud-out-li-div">
+                            <div>
+                              <span class="spanA"></span>
+                              <p>Available Fund</p>
+                              <div class="totinc" id="AvAnnualFund">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanB"></span>
+                              <p>Total Expenses</p>
+                              <div class="totexpinc" id="totalAnnualExpense">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanC"></span>
+                              <p>Amount Saved</p>
+                              <div class="totsaveinc" id="annualSavings">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                            <div>
+                              <span class="spanD"></span>
+                              <p>Percentage Savings</p>
+                              <div class="%saveinc" id="annualPercentage">
+                                $ 0.00 USD
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bud-out-foot">
+                            <div class="bud-info">
+                              <h2>
+                                Remarks
+                                <span class="return-back">Back ↩</span>
+                              </h2>
+                              <h3 class="remarksTextC"></h3>
+                            </div>
+                          </div>
+                        </aside>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- tracking all income sources -->
+              <div class="incometracking">
+                <div class="itrk-nav">
+                  <button type="button" id="Reg-Ireg">Track Income</button>
+                  <button type="button" id="Irregular">Track Expenses</button>
+                </div>
+                <div class="itrk-items">
+                  <div class="itrk-itemA">
+                    <span
+                      ><strong
+                        >Keep track of all income and Expenses</strong
+                      ></span
+                    >
+                  </div>
+
+                  <div class="itrk-itemB">
+                    <div class="salaried-cnt">
+                      <form action="#">
+                        <ul>
+                          <li>
+                            <input
+                              type="text"
+                              placeholder="type income Source"
+                              id="main-src"
+                              name="main-src" />
+                            <input
+                              type="number"
+                              placeholder="Enter Amount"
+                              id="main-amt"
+                              name="main-amt" />
+                          </li>
+                          <li>
+                            <p class="expenseperiodLabel2">Date Received</p>
+                          </li>
+                          <li>
+                            <input type="date" name="rec-date" id="rec-date" />
+                            <button type="button" id="add-trk-butt">Add</button>
+                          </li>
+                          <li>
+                            <button type="button" class="view-trk-butt">
+                              view List
+                            </button>
+                          </li>
+                        </ul>
+                      </form>
+                      <div class="nonsal-cnt-items">
+                        <ul class="nonsal-cnt-item-li" id="listOfIncome"></ul>
+                        <div class="nonsal-cnt-item-ft">
+                          <ol>
+                            <li>
+                              <span class="spanD"></span>
+                              <p>Gross Earnings</p>
+                              <div class="tot-anual-inc">$ 0.00 USD</div>
+                            </li>
+                            <li>
+                              <div class="tot-anual-inc Inc-exp-tracker">
+                                <span class="material-symbols-outlined">
+                                  monitoring
+                                </span>
+                                Clear All Incomes
+                              </div>
+                            </li>
+                            <li>
+                              <span class="go-to-Input">back ↩</span>
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nonsalaried-cnt">
+                      <form action="#">
+                        <ul>
+                          <li>
+                            <p>
+                              Monitor Expenses by Tracking all items purchased &
+                              date purchased
+                            </p>
+                          </li>
+                          <li>
+                            <input
+                              type="text"
+                              placeholder="vesache back pack"
+                              id="exp-det-item"
+                              name="exp-det-item" />
+
+                            <input
+                              type="number"
+                              placeholder="500.00 USD"
+                              id="exp-det-amt"
+                              name="exp-det-amt" />
+                          </li>
+                          <li>
+                            <label for="to-dt-pk" class="expenseperiodLabel2"
+                              >Date Purchased:
+                            </label>
+                            <input type="date" name="to-dt-pk" id="to-dt-pk" />
+                            <button type="button" id="add-exp-details">
+                              Click to Add
+                            </button>
+                          </li>
+                          <li>
+                            <button type="button" class="view-trk-butt">
+                              view List
+                            </button>
+                            <button class="go-to-Input">back ↩</button>
+                          </li>
+                        </ul>
+                      </form>
+                      <div class="nonsal-cnt-items">
+                        <ul class="nonsal-cnt-item-li" id="listOfExpenses"></ul>
+                        <div class="nonsal-cnt-item-ft">
+                          <ol>
+                            <li>
+                              <span class="spanB"></span>
+                              <p>Total Expenses</p>
+                              <div class="sum-of-det">$ 0.00 USD</div>
+                            </li>
+                            <li>
+                              <div class="tot-anual-inc Inc-exp-tracker">
+                                <span class="material-symbols-outlined">
+                                  monitoring
+                                </span>
+                                Clear All Expenses
+                              </div>
+                            </li>
+                            <li>
+                              <span class="go-to-Input">back ↩</span>
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="note-sect">
+            <aside class="note-nav">
+              <div class="notetabs">
+                <button type="button" id="Notes">Notes</button>
+                <button type="button" id="Ideas">Ideas</button>
+              </div>
+              <div class="note-ideas">
+                <div class="ideaspreviews">
+                  <ul class="ideaprevs"></ul>
+                </div>
+                <div class="notpreviews">
+                  <ul class="noteprevs"></ul>
+                </div>
+                <div class="idea-btnx">
+                  <span class="spanA"></span>
+                  <span class="spanB"></span>
+                </div>
+                <div class="idn-btn">
+                  <button type="button" id="addNewNote">
+                    <span class="material-symbols-outlined"> note_add </span>
+                  </button>
+                  <button type="button" id="dropIdea">
+                    <span class="material-symbols-outlined"> cognition </span>
+                  </button>
+                </div>
+              </div>
+            </aside>
+            <article class="note-side">
+              <div class="ideas-intake">
+                <div class="noteTxt">
+                  <textarea
+                    name="myIdeasBox"
+                    id="myIdeasBox"
+                    cols="30"
+                    rows="10"></textarea>
+                  <button type="button" id="saveIdea">
+                    <sppan class="material-symbols-outlined"> save </sppan>
+                  </button>
+                </div>
+                <div class="noteList ideasIntake"></div>
+              </div>
+              <div class="note-intake">
+                <div class="noteTxt">
+                  <textarea
+                    name="myNotes"
+                    id="myNotes"
+                    cols="30"
+                    rows="10"></textarea>
+                  <button type="button" id="saveNote">
+                    <sppan class="material-symbols-outlined"> save </sppan>
+                  </button>
+                </div>
+                <div class="noteList noteIntake"></div>
+              </div>
+            </article>
+          </section>
+          <!-- app welcome page -->
+          <div class="snippets-container">
+            <div class="container-one">
+              <div class="image-box first-box" style="color: #d7e3fc">
+                <h1>
+                  Set Plans, <br />
+                  Set Target, <br />
+                  Prepare Budgets <br />
+                </h1>
+
+                <p>
+                  Your diary experince just got much better, <br />
+                  simplier and much more accesible!
+                </p>
+                <button type="button">More Exciting Offers→</button>
+              </div>
+              <div class="image-box">
+                <ul class="adds-box">
+                  <li class="welcomeText welcomeTextA">
+                    <h1>
+                      Got <br />
+                      <strong> Plans</strong>
+                      &
+                      <br />
+                      <strong> Targets? </strong>
+                    </h1>
+                    <p>
+                      Your diary experince just got much better, <br />
+                      simplier and much more accesible! <br />
+                    </p>
+                    <button type="button">Click to Add →</button>
+                  </li>
+
+                  <li class="welcomeText welcomeTextB" style="color: #d7e3fc">
+                    <h1>
+                      Got Some <br />
+                      <strong>Ideas</strong>
+                      to note &
+                      <br />
+                      <strong>Notes</strong> to take?
+                    </h1>
+                    <p>
+                      Your diary experince just got much better, <br />
+                      simplier and much more accesible!
+                    </p>
+                    <button type="button" style="background-color: tomato">
+                      Click to Add →
+                    </button>
+                  </li>
+                  <li class="welcomeText welcomeTextC">
+                    <h1>
+                      Keep Track of All <br />
+                      <strong>Income</strong>
+                      &
+                      <br />
+                      <strong>Expenses</strong>
+                      <br />
+                    </h1>
+                    <p>
+                      Preparing daily, Weekly, Monthly and annual <br />
+                      budgets has never been much easier and simpler!
+                    </p>
+                    <button type="button">Start Tracking & Budgeting →</button>
+                  </li>
+                  <li class="welcomeText welcomeTextD" style="color: #d7e3fc">
+                    <h1>
+                      Let go <br />
+                      <strong>shopping</strong>
+                    </h1>
+                    <p>
+                      Plan your shopping spree, add shopping to itenary <br />
+                      & forcast estimated amount to spend
+                    </p>
+                    <button type="button" style="background-color: tomato">
+                      Click to Start →
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="container-two">
+              <div class="eventscontainer">
+                <span
+                  id="slidePrev"
+                  class="material-symbols-outlined arrow_back directionDiv">
+                  arrow_back
+                </span>
+                <span
+                  id="slideNext"
+                  class="material-symbols-outlined arrow_forward directionDiv">
+                  arrow_forward
+                </span>
+
+                <!-- todo snip -->
+                <div class="todo-snippet">
+                  <h2 class="snip-head">Schedules</h2>
+                  <ul class="todoSide todo-targ-side"></ul>
+                </div>
+                <!-- target snipps -->
+                <div class="todo-snippet">
+                  <h2 class="snip-head">Targets</h2>
+                  <ul class="targetSide todo-targ-side"></ul>
+                </div>
+                <!-- my notes -->
+                <div class="todo-snippet">
+                  <h2 class="snip-head">Notes</h2>
+                  <ul
+                    class="todo-targ-side idea-snip-section myNotes"
+                    id="note-snips"></ul>
+                </div>
+                <!-- my ideas -->
+                <div class="todo-snippet">
+                  <h2 class="snip-head">Inspirations</h2>
+                  <ul
+                    class="todo-targ-side idea-snip-section myIdeas"
+                    id="idea-snips"></ul>
+                </div>
+              </div>
+              <div class="graphContainer">
+                <span
+                  id="slideBackwards"
+                  class="material-symbols-outlined arrow_back directionDiv">
+                  arrow_back
+                </span>
+                <span
+                  id="slideForwards"
+                  class="material-symbols-outlined arrow_forward directionDiv">
+                  arrow_forward
+                </span>
+
+                <!-- income graph -->
+                <div class="budget-chart">
+                  <h2 class="gotoBudgetPage">Income Chart <span>⌝</span></h2>
+                  <div class="my-income-chart">
+                    <canvas id="myIncChart"></canvas>
+                  </div>
+                </div>
+                <!-- expenses charts -->
+                <div class="budget-chart">
+                  <h2 class="gotoBudgetPage">
+                    Expenditures Chart <span>⌝</span>
+                  </h2>
+                  <div class="my-exp-chart">
+                    <canvas id="myExpChart"></canvas>
+                  </div>
+                </div>
+                <!-- budget charts -->
+                <div class="budget-chart">
+                  <h2 class="gotoBudgetPage">Budget Chart <span>⌝</span></h2>
+                  <div class="my-budget-chart">
+                    <canvas id="myBudgetChart"></canvas>
+                  </div>
+                </div>
+                <!-- shopping cart -->
+                <div class="budget-chart">
+                  <h2 class="gotoBudgetPage">Shopping list <span>⌝</span></h2>
+                  <div class="my-shopping-chart">
+                    <canvas id="myShopChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <div class="clearanceAlert">
+        <div class="warningDiv">
+          <h2>Warning!</h2>
+          <p>All items will be Lost</p>
+        </div>
+        <div class="buttonDiv">
+          <button type="button" id="cont-butt">Continue</button>
+          <button type="button" id="cancel-butt">Cancel</button>
+        </div>
+      </div>
+    </main>
+    <script src="variable.js"></script>
+    <script src="todo.js"></script>
+    <script src="notes.js"></script>
+    <script src="app.js"></script>
+    <script src="budget.js"></script>
+  </body>
+</html>
